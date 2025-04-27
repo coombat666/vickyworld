@@ -42,22 +42,67 @@
         .social-icons img:hover {
             transform: scale(1.1);
         }
+        nav {
+            margin-bottom: 30px;
+        }
+        nav a {
+            font-size: 1.5em;
+            margin: 0 20px;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #ff4757;
+            border-radius: 10px;
+        }
+        .content {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
     <h1>Witaj na VickyWorld.pl!</h1>
-    <p>Wesprzyj nasz serwer i zakup rangę VIP za 5 zł!</p>
 
-    <a href="https://tipply.pl/@whokilledmayd" class="button" target="_blank">Kup VIP - 5zł</a>
-    <a href="https://tipply.pl/@whokilledmayd" class="button" target="_blank">Wyślij donate</a>
+    <!-- Nawigacja -->
+    <nav>
+        <a href="#" onclick="showTab('socials')">SOCIALE</a>
+        <a href="#" onclick="showTab('minecraft')">SERWER MINECRAFT</a>
+    </nav>
 
-    <div class="social-icons">
+    <!-- Zakładka Social -->
+    <div id="socials" class="content active">
         <h2>Obserwuj nas na TikToku!</h2>
         <a href="https://tiktok.com/@whokilledmayd" target="_blank">
             <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
         </a>
+        <br>
+        <a href="https://tipply.pl/whokilledmayd" class="button" target="_blank">Wyślij donate</a>
     </div>
+
+    <!-- Zakładka Serwer Minecraft -->
+    <div id="minecraft" class="content">
+        <h2>Zakup rangę VIP na serwerze Minecraft!</h2>
+        <a href="https://tipply.pl/whokilledmayd" class="button" target="_blank">Kup VIP - 5zł</a>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            // Ukryj wszystkie zakładki
+            var tabs = document.querySelectorAll('.content');
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+
+            // Pokaż wybraną zakładkę
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
